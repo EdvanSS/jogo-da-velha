@@ -1,7 +1,7 @@
 const tic_tac_toe = {
     board: ['', '', '', '', '', '', '', '', ''],
     simbols: {
-        options: ['X', 'O'],
+        options: ['❌', '✔️'],
         turn_index: 0,
         change: function() {
             this.turn_index = (this.turn_index === 0 ? 1 : 0);
@@ -38,6 +38,7 @@ const tic_tac_toe = {
             return true;
         } else {
             return false;
+            alert("Velha")
         }
     },
 
@@ -51,11 +52,11 @@ const tic_tac_toe = {
         this.gameover = false;
     },
 
-    check_winning_sequences: function(simbol) {
+    check_winning_sequences: function(simbols) {
         for (i in this.winning_sequences) {
-            if (this.board[this.winning_sequences[i][0]] == simbol &&
-                this.board[this.winning_sequences[i][1]] == simbol &&
-                this.board[this.winning_sequences[i][2]] == simbol) {
+            if (this.board[this.winning_sequences[i][0]] == simbols &&
+                this.board[this.winning_sequences[i][1]] == simbols &&
+                this.board[this.winning_sequences[i][2]] == simbols) {
                 console.log('sequencia vencedora: ' + i);
                 return i;
             }
